@@ -1,37 +1,36 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
+
 import banner from "./utils/banner.js";
-import hello from "./commands/hello.js";
+
 import login from "./commands/login.js";
 import dashboard from "./commands/dashboard.js";
 import profile from "./commands/profile.js";
-
-await login();
+import updateProfile from "./commands/update.js";
+import logout from "./commands/logout.js";
 
 const program = new Command();
 
+// Show Banner
 banner();
 
-// program
-//     .name("careerforge")
-//     .description("AI Career Assistant CLI")
-//     .version("1.0.0");
-
-// program
-//     .command("hello")
-//     .description("Test command")
-//     .action(() => {
-//         hello();
-//     });
+// CLI Information
 
 program
-    .command("login")
-    .description("Login to CareerForge")
-    .action(async () => {
-        await login();
-    });
+  .name("careerforge")
+  .description("🚀 AI Career Assistant CLI")
+  .version("1.0.0");
 
+// Login
+program
+  .command("login")
+  .description("Login to CareerForge")
+  .action(async () => {
+    await login();
+  });
+
+// Dashboard
 program
   .command("dashboard")
   .description("Open CareerForge Dashboard")
@@ -39,12 +38,29 @@ program
     await dashboard();
   });
 
-  program
-    .command("profile")
-    .description("Show user profile")
-    .action(() => {
-        profile();
-    });
+// Profile
+program
+  .command("profile")
+  .description("Show User Profile")
+  .action(() => {
+    profile();
+  });
 
+// Update Profile
+program
+  .command("update")
+  .description("Update User Profile")
+  .action(async () => {
+    await updateProfile();
+  });
+
+// Logout
+program
+  .command("logout")
+  .description("Logout from CareerForge")
+  .action(async () => {
+    await logout();
+  });
+
+// Parse Commands
 program.parse();
-
