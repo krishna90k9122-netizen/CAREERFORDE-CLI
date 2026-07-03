@@ -78,6 +78,12 @@ await github();
 
 }); 
 
+program
+  .command("resume")
+  .description("Upload and Analyze Resume")
+  .action(async () => {
+    await resume();
+  });
 
 // Parse Commands
 program.parse();
