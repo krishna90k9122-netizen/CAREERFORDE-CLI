@@ -14,4 +14,5 @@ export function getUser() {
     const data = fs.readFileSync(FILE_PATH, "utf-8");
 
     return JSON.parse(data);
+    
 }

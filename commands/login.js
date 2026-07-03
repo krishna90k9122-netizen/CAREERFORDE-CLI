@@ -109,4 +109,5 @@ export default async function login() {
     console.log(`📧 Email  : ${user.email}`);
     console.log(`💻 Domain : ${user.domain}`);
     console.log(chalk.yellow("===================================="));
+    
 }

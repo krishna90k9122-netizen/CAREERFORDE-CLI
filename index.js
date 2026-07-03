@@ -9,6 +9,13 @@ import dashboard from "./commands/dashboard.js";
 import profile from "./commands/profile.js";
 import updateProfile from "./commands/update.js";
 import logout from "./commands/logout.js";
+import github from "./commands/github.js";
+import test from "./commands/test.js";
+import {githubStats} from "./services/githubstats.js";
+import resume from "./commands/resume.js";
+
+test();
+
 
 const program = new Command();
 
@@ -61,6 +68,16 @@ program
   .action(async () => {
     await logout();
   });
+
+  program
+.command("github")
+.description("Connect GitHub Profile")
+.action(async()=>{
+
+await github();
+
+}); 
+
 
 // Parse Commands
 program.parse();
